@@ -1,4 +1,7 @@
-# Hello World
-Chris Hicks's cv goes here
+
+
+# Christopher Hicks
+Hello World.  
+
 [GitHub](https://github.com/spudunk)
 
