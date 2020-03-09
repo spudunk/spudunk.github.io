@@ -10,4 +10,6 @@ Aspire greatly
 [GitHub](https://github.com/spudunk)
 
 
-<script>document.body.style.backgroundColor = "red";</script>
+<script>
+  document.body.style.backgroundColor = "red";
+</script>
