@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="style.css">  
+<script type="text/javascript" src="script.js"></script>
 
 # Christopher Hicks
 03082020
@@ -8,5 +9,3 @@ Aspire greatly
 0 can take away your purpose
 
 [GitHub](https://github.com/spudunk)  
-  
-<script type="text/javascript" src="script.js"></script>
