@@ -7,6 +7,9 @@ Hello World
 **Aspire greatly**
 
 ---
+[Password Generator](/pass_generator.html)
+
+---
 <div id="contact"></div>
 
 ---
