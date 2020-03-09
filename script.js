@@ -20,3 +20,10 @@ contact.innerHTML = `
   <a href="tel:+13608272736">(360) 827-2736</a><br>
   <a href="mailto:hickscme@gmail.com">hickscme@gmail.com</a></p>
 `
+var box = document.getElementById('christopher-hicks'),
+    colors = ['purple', 'pink', 'orange', 'brown', 'black'];
+box.onclick = function () {
+    color = colors.shift();
+    colors.push(color);
+    box.style.color = color;
+};
