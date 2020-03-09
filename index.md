@@ -7,6 +7,6 @@ Hello World.
 Aspire greatly  
 0 can take away your purpose
 
-[GitHub](https://github.com/spudunk)
-
+[GitHub](https://github.com/spudunk)  
+  
 <script type="text/javascript" src="script.js"></script>
