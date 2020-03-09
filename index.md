@@ -1,4 +1,7 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<!-->
 <style>
+
   /*hide the built-in branding element*/
   body > div > footer > p > small {
     visibility: hidden;      
@@ -9,14 +12,15 @@
   }
 
   /*custom fonts and styles*/
-  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
   body {
-    font-family: 'Source Code Pro', monospace;
-    background-color: #f1d5ee;
+    font-family: 'Ubuntu Mono', monospace;
+    background-color: #e2e2dd;
   }
 
 </style>
-
+--->
+---
 
 # Christopher Hicks
 Hello World.  
