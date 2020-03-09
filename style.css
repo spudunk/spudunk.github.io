@@ -2,7 +2,7 @@
 body > div > footer > p > small {
   visibility: hidden;
 }
-/*hide the built-in link to GitHub profile*/
+/*hide the built-in view element with link to GitHub profile*/
 body > div > header > p.view {
   visibility: hidden;
 }

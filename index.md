@@ -2,9 +2,12 @@
 
 # Christopher Hicks
 03082020  
-Hello World.  
+Hello World  
 
 **Aspire greatly**
+
+---
+<div id="contact"></div>
 
 ---
 <script type="text/javascript" src="script.js"></script>
