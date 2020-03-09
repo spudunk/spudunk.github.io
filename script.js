@@ -12,3 +12,11 @@ contact.innerHTML = `
   <a href="tel:+13608272736">(360) 827-2736</a><br>
   <a href="mailto:hickscme@gmail.com">hickscme@gmail.com</a></p>
 `
+
+
+// add jquery
+var jQueryScript = document.createElement('script');
+jQueryScript.setAttribute('src','https://code.jquery.com/jquery-3.4.1.slim.min.js');
+jQueryScript.setAttribute('integrity','sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=');
+jQueryScript.setAttribute('crossorigin','anonymous');
+document.head.appendChild(jQueryScript);
