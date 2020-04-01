@@ -8,8 +8,11 @@ Hello World
 
 ---
 [Password Generator](/pass_generator.html)  
+
 [Stock Market Dashboard](/data-vis/data-vis.html)  
+
 [geojson.io](/geojson.io/index.html)  
+
 ---
 <div id="contact"></div>
 
