@@ -7,11 +7,9 @@ Hello World
 **Aspire greatly**
 
 ---
-[Password Generator](/pass_generator.html)  
-
-[Stock Market Dashboard](/data-vis/data-vis.html)  
-
-[geojson.io](/geojson.io/index.html)  
+[Password Generator](/pass_generator.html)  <br>
+[Stock Market Dashboard](/data-vis/data-vis.html)  <br>
+[geojson.io](/geojson.io/index.html)  <br>
 
 ---
 <div id="contact"></div>
