@@ -5,26 +5,27 @@ jQueryScript.setAttribute('integrity', 'sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFy
 jQueryScript.setAttribute('crossorigin', 'anonymous');
 document.head.appendChild(jQueryScript);
 
-
-// var view = document.getElementsByClassName("view")[0];
-var view = $(".view")[0];
-// view.id = "view"
-view.innerHTML = `
+$(document).ready(function () {
+  // var view = document.getElementsByClassName("view")[0];
+  var view = $(".view")[0];
+  // view.id = "view"
+  view.innerHTML = `
   &bull; <a href="https://www.facebook.com/hickscme" target="_blank">Facebook</a><br>
   &bull; <a href="https://github.com/spudunk" target="_blank">GitHub</a><br>
   &bull; <a href="https://twitter.com/HicksCME" target="_blank">Twitter</a><br>
-`;
-view.style.visibility = "visible";
-contact = document.getElementById("contact");
-contact.innerHTML = `
+  `;
+  view.style.visibility = "visible";
+  contact = document.getElementById("contact");
+  contact.innerHTML = `
   <p>Contact me at: <br>
   <a href="tel:+13608272736">(360) 827-2736</a><br>
   <a href="mailto:hickscme@gmail.com">hickscme@gmail.com</a></p>
-`
-var box = document.getElementById('christopher-hicks'),
+  `
+  var box = document.getElementById('christopher-hicks'),
   colors = ['purple', 'pink', 'orange', 'brown', 'black'];
-box.onclick = function() {
-  color = colors.shift();
-  colors.push(color);
-  box.style.color = color;
-};
+  box.onclick = function() {
+    color = colors.shift();
+    colors.push(color);
+    box.style.color = color;
+  };
+});
