@@ -1,12 +1,13 @@
 // add jquery
 var jQueryScript = document.createElement('script');
-jQueryScript.setAttribute('src','https://code.jquery.com/jquery-3.4.1.slim.min.js');
-jQueryScript.setAttribute('integrity','sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=');
-jQueryScript.setAttribute('crossorigin','anonymous');
+jQueryScript.setAttribute('src', 'https://code.jquery.com/jquery-3.4.1.slim.min.js');
+jQueryScript.setAttribute('integrity', 'sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=');
+jQueryScript.setAttribute('crossorigin', 'anonymous');
 document.head.appendChild(jQueryScript);
 
 
-var view = document.getElementsByClassName("view")[0];
+// var view = document.getElementsByClassName("view")[0];
+var view = $(".view")[0];
 // view.id = "view"
 view.innerHTML = `
   &bull; <a href="https://www.facebook.com/hickscme" target="_blank">Facebook</a><br>
@@ -21,9 +22,9 @@ contact.innerHTML = `
   <a href="mailto:hickscme@gmail.com">hickscme@gmail.com</a></p>
 `
 var box = document.getElementById('christopher-hicks'),
-    colors = ['purple', 'pink', 'orange', 'brown', 'black'];
-box.onclick = function () {
-    color = colors.shift();
-    colors.push(color);
-    box.style.color = color;
+  colors = ['purple', 'pink', 'orange', 'brown', 'black'];
+box.onclick = function() {
+  color = colors.shift();
+  colors.push(color);
+  box.style.color = color;
 };

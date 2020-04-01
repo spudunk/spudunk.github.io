@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="index.css">
 
 # Christopher Hicks
 03082020  
@@ -8,9 +8,10 @@ Hello World
 
 ---
 [Password Generator](/pass_generator.html)
-
+[Stock Market Dashboard](/data-vis/data-vis.html)
+[geojson.io](/geojson.io/index.html)
 ---
 <div id="contact"></div>
 
 ---
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="index.js"></script>
