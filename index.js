@@ -1,12 +1,12 @@
-function addjquery(_callback){
-  // add jquery
-  var jQueryScript = document.createElement('script');
-  jQueryScript.setAttribute('src', 'https://code.jquery.com/jquery-3.4.1.slim.min.js');
-  jQueryScript.setAttribute('integrity', 'sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=');
-  jQueryScript.setAttribute('crossorigin', 'anonymous');
-  document.head.appendChild(jQueryScript);
-  _callback();
-}
+// function addjquery(_callback){
+//   // add jquery
+//   var jQueryScript = document.createElement('script');
+//   jQueryScript.setAttribute('src', 'https://code.jquery.com/jquery-3.4.1.slim.min.js');
+//   jQueryScript.setAttribute('integrity', 'sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=');
+//   jQueryScript.setAttribute('crossorigin', 'anonymous');
+//   document.head.appendChild(jQueryScript);
+//   _callback();
+// }
 
 function writePage(){
   // var view = document.getElementsByClassName("view")[0];
@@ -31,6 +31,7 @@ function writePage(){
     colors.push(color);
     box.style.color = color;
   };
-}
+};
 
-addjquery(writePage)
+// addjquery(writePage)
+writePage();
