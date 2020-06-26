@@ -1,0 +1,51 @@
+<head>
+  <title id="title">Asana Test App</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    .content table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header overwritten when JS runs -->
+  <h1 id="header">JAVASCRIPT IS REQUIRED FOR THIS APPLICATION TO WORK</h1>
+
+  <div>API Token:
+    <input type="text" name="tokenInput" id="tokenInput">
+    <input type="button" name="setToken" id="setToken" value="SET"></div>
+
+  <!-- div to insert me object info to show working connection -->
+  <div id="userName"></div>
+
+  <!-- Content section for Asana JS to work in -->
+  <div class="content" id="contentDiv">
+    <table id="taskTable">
+      <tr><th>Name</th><th>Status</th><th>Flags</th></tr>
+    </table>
+  </div>
+
+  <p style="color:green"></p>
+
+  <!-- jQuery for API requests -->
+  <!-- we may not even need it
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   -->
+
+  <!--Setup Page -->
+  <script>
+    // Insert Title to header
+    document.getElementById("header").textContent = "Asana Test App"
+  </script>
+
+  <!-- Asana compiled JS library -->
+  <script src="asana-min.js"></script>
+
+  <!-- Asana Code -->
+  <script src="script.js"></script>
+
+</body>
