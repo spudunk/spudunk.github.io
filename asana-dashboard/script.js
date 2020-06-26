@@ -53,6 +53,11 @@
     // FUNCTIONS
     // ======================================
 
+    // sets projectId variable to match input field
+    function setProjectId() {
+        projectID = projectIdInput.value;
+    }
+
     // validates token input and sets to token variable
     function setToken(cb = null) {
         if (tokenInput.value.length > 10) {
@@ -60,8 +65,7 @@
             // set token
             client.useAccessToken(token);
             if (tokenInfo) {
-                tokenInfo.parentNode.removeChild(tokenInfo);
-                tokenInfo = false;
+                tokenInfo.style.display = "none";
             }
             if (cb) {
                 cb();
@@ -73,18 +77,25 @@
 
     // Primary API function
     function testApi() {
+        
+        setProjectId();
 
         // Get User Info and add to user element
         client.users.me()
             .then(function (me) {
                 console.log(me);
-                document.getElementById("user").innerHTML = `<h4>${me.name}</h4><p>Email: ${me.email}</p><p>Asana GID: ${me.gid}`;
+                document.getElementById("user").innerHTML = 
+                `<table >
+                    <tr><td colspan="2"><strong>${me.name}</strong></td></tr>
+                    <tr><td>Email</td><td>${me.email}</td></tr>
+                    <tr><td>Asana GID</td><td>${me.gid}</td></tr>
+                </table>`;
             });
 
         // Get User Tasks
         contentDiv.innerHTML =
             `<table id="taskTable">
-                <tr><th>Name</th><th>Status</th><th>Custom</th></tr>
+                <tr><th>Name</th><th>Status</th><th>Flags</th></tr>
             </table>`;
         taskTable = document.getElementById("taskTable");
         client.tasks.getTasks({
