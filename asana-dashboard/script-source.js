@@ -91,15 +91,6 @@ function testApi() {
                 <tr><td>Asana GID</td><td>${me.gid}</td></tr>
             </table>`;
         });
-    
-    // Reset contentDiv with empty table
-    contentDiv.innerHTML =
-        `<table id="taskTable">
-            <tr><th>Name</th><th>Status</th><th>Flags</th></tr>
-        </table>`;
-    
-    // re-assign table variable to new table created in DOM
-    taskTable = document.getElementById("taskTable");
 
     // Get User Tasks
     client.tasks.getTasks({
@@ -108,7 +99,13 @@ function testApi() {
         })
         // add each task to the table
         .then(function (tasks) {
-            console.log(tasks.data);  // for debugging
+            // Reset contentDiv with empty table
+            contentDiv.innerHTML =
+                `<table id="taskTable"><tr><th>Name</th><th>Status</th><th>Flags</th></tr></table>`;
+
+            // re-assign table variable to new table created in DOM
+            taskTable = document.getElementById("taskTable");
+            console.log(tasks.data); // for debugging
             tasks.data.forEach(task => {
                 addTask(task);
             });
