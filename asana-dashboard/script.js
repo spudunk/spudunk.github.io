@@ -77,27 +77,28 @@
 
     // Primary API function
     function testApi() {
-        
+
         setProjectId();
 
         // Get User Info and add to user element
         client.users.me()
             .then(function (me) {
                 console.log(me);
-                document.getElementById("user").innerHTML = 
-                `<table >
+                document.getElementById("user").innerHTML =
+                    `<table >
                     <tr><td colspan="2"><strong>${me.name}</strong></td></tr>
                     <tr><td>Email</td><td>${me.email}</td></tr>
                     <tr><td>Asana GID</td><td>${me.gid}</td></tr>
                 </table>`;
             });
 
-        // Get User Tasks
         contentDiv.innerHTML =
             `<table id="taskTable">
                 <tr><th>Name</th><th>Status</th><th>Flags</th></tr>
             </table>`;
         taskTable = document.getElementById("taskTable");
+
+        // Get User Tasks
         client.tasks.getTasks({
                 project: projectId,
                 opt_fields: "name,completed,assignee.(name|email),custom_fields.(enum_value|name)"
@@ -111,33 +112,32 @@
     };
 
     function addTask(task) {
-
-        var child = document.createElement("tr")
-        child.classList = ["item"];
-        var contentString = `<td>${task.name}</td>`
+        // create a table row for the task
+        tr = document.createElement("tr")
+        // add task name cell to html string for insert to row
+        contentString = `<td>${task.name}</td>`
+        // conditional to add task status cell to html string
         if (task.completed) {
-            contentString = contentString.concat(
+            contentString +=
                 `<td style="color:green"><strong>COMPLETE</strong></td>`
-            )
         } else {
-            contentString = contentString.concat(
+            contentString +=
                 `<td style="color:red"><strong>INCOMPLETE</strong></td>`
-            )
         }
 
-        var customFieldString = "<td>";
+        customFieldString = "<td>";
         task.custom_fields.forEach(field => {
             if (field.enum_value) {
-                console.log(field);
-                customFieldString = customFieldString.concat(
+                // console.log(field);
+                customFieldString +=
                     `<span style="color:${field.enum_value.color}"> ${field.enum_value.name} </span>`
-                )
+
             }
         });
-        customFieldString = customFieldString.concat('</td>');
-        contentString = contentString.concat(customFieldString);
+        customFieldString += '</td>';
+        contentString += customFieldString;
 
-        child.innerHTML = contentString;
-        taskTable.appendChild(child);
+        tr.innerHTML = contentString;
+        taskTable.appendChild(tr);
 
     };
