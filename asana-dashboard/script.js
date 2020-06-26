@@ -1,52 +1,105 @@
-    // Setup API connection
-    var token;
-    var client = Asana.Client.create()
+    // ======================================
+    // Assign Variables
+    // ======================================
+    var token,
+        projectId = "1181114934981905",
+        client = Asana.Client.create();
 
-    tokenInput = document.getElementById("tokenInput");
-    contentDiv = document.getElementById("contentDiv");
-    taskTable = document.getElementById("taskTable");
+    // ======================================
+    // Get DOM Elements
+    // ======================================
+    var tokenInput = document.getElementById("tokenInput"),
+        projectIdInput = document.getElementById("projectIdInput"),
+        tokenButton = document.getElementById("setToken"),
+        contentDiv = document.getElementById("contentDiv");
 
+    tokenInfo = document.getElementById("tokenInfo");
+
+    // ======================================
+    // PAGE SETUP
+    // ======================================
+    var titleString = "Asana Tasks Test App",
+        heading = document.getElementById("header"),
+        title = document.getElementById("title");
+
+    Array(title, heading).forEach(element => {
+        element.textContent = titleString;
+    });
+
+    // Insert project ID to input box
+    projectIdInput.value = projectId;
+
+    // If token is assigned in script add to input field and run API function
     if (token) {
-        tokenInput.value = token
-        setToken(testApi)
+        tokenInput.value = token;
+        client.useAccessToken(token);
+        testApi();
     }
 
-    document.getElementById("setToken").onclick = function () {
+    // ======================================
+    // EVENT LISTENERS
+    // ======================================
+    tokenButton.onclick = function () {
         setToken(testApi);
     }
+    tokenInput.addEventListener("keyup", event => {
+        if (event.keyCode === 13) {
+            setToken(testApi);
+        }
+    })
 
-    function setToken(cb) {
+
+    // ======================================
+    // FUNCTIONS
+    // ======================================
+
+    // validates token input and sets to token variable
+    function setToken(cb = null) {
         if (tokenInput.value.length > 10) {
             token = tokenInput.value;
             // set token
             client.useAccessToken(token);
-            cb();
+            if (tokenInfo) {
+                tokenInfo.parentNode.removeChild(tokenInfo);
+                tokenInfo = false;
+            }
+            if (cb) {
+                cb();
+            }
         } else {
             alert("must input Asana API token");
         }
     }
 
+    // Primary API function
     function testApi() {
-        // Get User Info
+
+        // Get User Info and add to user element
         client.users.me()
             .then(function (me) {
                 console.log(me);
-                document.getElementById("userName").innerHTML = `<h4>${me.name}</h4><p>Email: ${me.email}</p><p>Asana GID: ${me.gid}`;
+                document.getElementById("user").innerHTML = `<h4>${me.name}</h4><p>Email: ${me.email}</p><p>Asana GID: ${me.gid}`;
             });
+
         // Get User Tasks
+        contentDiv.innerHTML =
+            `<table id="taskTable">
+                <tr><th>Name</th><th>Status</th><th>Custom</th></tr>
+            </table>`;
+        taskTable = document.getElementById("taskTable");
         client.tasks.getTasks({
-                project: "1181114934981905",
+                project: projectId,
                 opt_fields: "name,completed,assignee.(name|email),custom_fields.(enum_value|name)"
             })
             .then(function (tasks) {
                 console.log(tasks.data);
-                tasks.data.forEach((task) => {
-                    addContent(task);
+                tasks.data.forEach(task => {
+                    addTask(task);
                 });
             });
     };
 
-    function addContent(task) {
+    function addTask(task) {
 
         var child = document.createElement("tr")
         child.classList = ["item"];
@@ -62,7 +115,7 @@
         }
 
         var customFieldString = "<td>";
-        task.custom_fields.forEach((field) => {
+        task.custom_fields.forEach(field => {
             if (field.enum_value) {
                 console.log(field);
                 customFieldString = customFieldString.concat(

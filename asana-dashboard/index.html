@@ -1,5 +1,5 @@
 <head>
-  <title id="title">Asana Test App</title>
+  <title id="title"></title>
   <style>
     h1 {
       text-align: center;
@@ -14,20 +14,24 @@
 <body>
   <!-- Header overwritten when JS runs -->
   <h1 id="header">JAVASCRIPT IS REQUIRED FOR THIS APPLICATION TO WORK</h1>
-
+  <p id="tokenInfo">Create a personal access token in the <a href="https://app.asana.com/0/developer-console" target="_blank">Asana Developer Console</a></p>
+  
   <div>API Token:
     <input type="text" name="tokenInput" id="tokenInput">
-    <input type="button" name="setToken" id="setToken" value="SET"></div>
+    <input type="button" name="setToken" id="setToken" value="SET">
+  </div><br>
+
+  <div>Project ID:
+    <input type="text" name="projectIdInput" id="projectIdInput">
+    <!-- <input type="button" name="setToken" id="setToken" value="SET"> -->
+  </div><br>
 
   <!-- div to insert me object info to show working connection -->
-  <div id="userName"></div>
+  <div id="user"></div>
 
   <!-- Content section for Asana JS to work in -->
-  <div class="content" id="contentDiv">
-    <table id="taskTable">
-      <tr><th>Name</th><th>Status</th><th>Flags</th></tr>
-    </table>
-  </div>
+  <br>
+  <div class="content" id="contentDiv"></div>
 
   <p style="color:green"></p>
 
@@ -38,8 +42,7 @@
 
   <!--Setup Page -->
   <script>
-    // Insert Title to header
-    document.getElementById("header").textContent = "Asana Test App"
+    
   </script>
 
   <!-- Asana compiled JS library -->
