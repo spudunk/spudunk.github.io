@@ -92,28 +92,87 @@ function testApi() {
             </table>`;
         });
 
+
+    var tableString = `<table>
+      <tr>
+        <th></th><th>Important</th><th>Non-Important</th>
+      </tr>
+      <tr>
+        <th>Urgent</th>
+        <td>
+          <table id="tasksNN"><tr><th>Name</th><th>Status</th></tr></table>
+        </td>
+        <td>
+          <table id="tasksNU"><tr><th>Name</th><th>Status</th></tr></table>
+        </td>
+      </tr>
+      <tr>
+        <th>Non-Urgent</th>
+        <td>
+          <table id="tasksIN"><tr><th>Name</th><th>Status</th></tr></table>
+        </td>
+        <td>
+          <table id="tasksIU"><tr><th>Name</th><th>Status</th></tr></table>
+        </td>
+      </tr>
+    </table>`
+
     // Get User Tasks
     client.tasks.getTasks({
             project: projectId,
             opt_fields: "name,completed,assignee.(name|email),custom_fields.(enum_value|name)"
         })
         // add each task to the table
-        .then(function (tasks) {
+        .then(tasks => {
             // Reset contentDiv with empty table
-            contentDiv.innerHTML =
-                `<table id="taskTable"><tr><th>Name</th><th>Status</th><th>Flags</th></tr></table>`;
+            contentDiv.innerHTML = tableString;
 
             // re-assign table variable to new table created in DOM
             taskTable = document.getElementById("taskTable");
+
+            //
+            tasksNN  = document.getElementById("tasksNN")  // Non-Important, Non-Urgent
+            tasksNU  = document.getElementById("tasksNU")  // Non-Important, Urgent
+            tasksIN  = document.getElementById("tasksIN")  // Important, Non-Urgent
+            tasksIU  = document.getElementById("tasksIU")  // Important, Urgent
+
             console.log(tasks.data); // for debugging
+
             tasks.data.forEach(task => {
-                addTask(task);
+
+              task.custom_fields.forEach(field => {
+                if (field.name == "Important"){
+                  if (field.enum_value){
+                    task.important = true;
+                  }
+                }
+                if (field.name == "Urgent"){
+                  if (field.enum_value){
+                    task.urgent = true;
+                  }
+                }
+              });
+
+              console.log(task);
+              if (!task.important && !task.urgent){
+                addTask(task, tasksNN)
+              }
+              if (!task.important && task.urgent){
+                addTask(task, tasksNU)
+              }
+              if (task.important && !task.urgent){
+                addTask(task, tasksIN)
+              }
+              if (task.important && task.urgent){
+                addTask(task, tasksIU)
+              }
+
             });
         });
 };
 
 // Add task to table
-function addTask(task) {
+function addTask(task,parent=taskTable) {
     // create a table row element for the task
     tr = document.createElement("tr")
     // add task name cell to html string for insert to row
@@ -126,23 +185,25 @@ function addTask(task) {
         contentString +=
             `<td style="color:red"><strong>INCOMPLETE</strong></td>`
     }
-    // create cell with list of Asana "custom fields" values
-    customFieldString = "<td>";
-    // loop through custom fields and add enum_values
-    task.custom_fields.forEach(field => {
-        if (field.enum_value) {
-            // console.log(field);
-            customFieldString +=
-                `<span style="color:${field.enum_value.color}"> ${field.enum_value.name} </span>`
 
-        }
-    });
-    // close custom fields cell
-    customFieldString += '</td>';
-    // add custom field cell to table content string
-    contentString += customFieldString;
-    // 
+    // // create cell with list of Asana "custom fields" values
+    // customFieldString = "<td>";
+    // // loop through custom fields and add enum_values
+    // task.custom_fields.forEach(field => {
+    //     if (field.enum_value) {
+    //         // console.log(field);
+    //         customFieldString +=
+    //             `<span style="color:${field.enum_value.color}"> ${field.enum_value.name} </span>`
+    //
+    //     }
+    // });
+    // // close custom fields cell
+    // customFieldString += '</td>';
+    // // add custom field cell to table content string
+    // contentString += customFieldString;
+    //
+    //
     tr.innerHTML = contentString;
-    taskTable.appendChild(tr);
+    parent.appendChild(tr);
 
 };
