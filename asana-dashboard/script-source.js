@@ -100,7 +100,7 @@ function testApi() {
       <tr>
         <th>Urgent</th>
         <td>
-          <table id="tasksNN"><tr><th>Name</th><th>Status</th></tr></table>
+          <table id="tasksIU"><tr><th>Name</th><th>Status</th></tr></table>
         </td>
         <td>
           <table id="tasksNU"><tr><th>Name</th><th>Status</th></tr></table>
@@ -112,7 +112,7 @@ function testApi() {
           <table id="tasksIN"><tr><th>Name</th><th>Status</th></tr></table>
         </td>
         <td>
-          <table id="tasksIU"><tr><th>Name</th><th>Status</th></tr></table>
+          <table id="tasksNN"><tr><th>Name</th><th>Status</th></tr></table>
         </td>
       </tr>
     </table>`
