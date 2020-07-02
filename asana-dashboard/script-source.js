@@ -94,27 +94,61 @@ function testApi() {
 
 
     var tableString = `<table>
-      <tr>
-        <th></th><th>Important</th><th>Non-Important</th>
-      </tr>
-      <tr>
-        <th>Urgent</th>
-        <td>
-          <table id="tasksIU"><tr><th>Name</th><th>Status</th></tr></table>
-        </td>
-        <td>
-          <table id="tasksNU"><tr><th>Name</th><th>Status</th></tr></table>
-        </td>
-      </tr>
-      <tr>
-        <th>Non-Urgent</th>
-        <td>
-          <table id="tasksIN"><tr><th>Name</th><th>Status</th></tr></table>
-        </td>
-        <td>
-          <table id="tasksNN"><tr><th>Name</th><th>Status</th></tr></table>
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <th></th><th>Important</th><th>Non-Important</th>
+        </tr>
+        <tr>
+          <th>Urgent</th>
+          <td>
+            <table class="subtable">
+              <thead>
+                <tr>
+                  <th class="name">Name</th>
+                  <th class="status">Status</th>
+                </tr>
+              </thead>
+              <tbody id="tasksIU"></tbody>
+            </table>
+          </td>
+          <td>
+            <table class="subtable">
+              <thead>
+                <tr>
+                  <th class="name">Name</th>
+                  <th class="status">Status</th>
+                </tr>
+              </thead>
+              <tbody id="tasksNU"></tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>Non-Urgent</th>
+          <td>
+            <table class="subtable">
+              <thead>
+                <tr>
+                  <th class="name"></th>
+                  <th class="status"></th>
+                </tr>
+              </thead>
+              <tbody id="tasksIN"></tbody>
+            </table>
+          </td>
+          <td>
+            <table class="subtable">
+              <thead>
+                <tr>
+                  <th class="name"></th>
+                  <th class="status"></th>
+                </tr>
+              </thead>
+              <tbody id="tasksNN"></tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
     </table>`
 
     // Get User Tasks
@@ -173,37 +207,38 @@ function testApi() {
 
 // Add task to table
 function addTask(task,parent=taskTable) {
-    // create a table row element for the task
-    tr = document.createElement("tr")
-    // add task name cell to html string for insert to row
-    contentString = `<td>${task.name}</td>`
-    // conditional to add task status cell to html string
-    if (task.completed) {
-        contentString +=
-            `<td style="color:green"><strong>COMPLETE</strong></td>`
-    } else {
-        contentString +=
-            `<td style="color:red"><strong>INCOMPLETE</strong></td>`
-    }
 
-    // // create cell with list of Asana "custom fields" values
-    // customFieldString = "<td>";
-    // // loop through custom fields and add enum_values
-    // task.custom_fields.forEach(field => {
-    //     if (field.enum_value) {
-    //         // console.log(field);
-    //         customFieldString +=
-    //             `<span style="color:${field.enum_value.color}"> ${field.enum_value.name} </span>`
-    //
-    //     }
-    // });
-    // // close custom fields cell
-    // customFieldString += '</td>';
-    // // add custom field cell to table content string
-    // contentString += customFieldString;
-    //
-    //
-    tr.innerHTML = contentString;
-    parent.appendChild(tr);
+  // create a table row element for the task
+  tr = document.createElement("tr")
+  // add task name cell to html string for insert to row
+  contentString = `<td>${task.name}</td>`
+  // conditional to add task status cell to html string
+  if (task.completed) {
+      contentString +=
+          `<td style="color:green"><strong>COMPLETE</strong></td>`
+  } else {
+      contentString +=
+          `<td style="color:red"><strong>INCOMPLETE</strong></td>`
+  }
+
+  // // create cell with list of Asana "custom fields" values
+  // customFieldString = "<td>";
+  // // loop through custom fields and add enum_values
+  // task.custom_fields.forEach(field => {
+  //     if (field.enum_value) {
+  //         // console.log(field);
+  //         customFieldString +=
+  //             `<span style="color:${field.enum_value.color}"> ${field.enum_value.name} </span>`
+  //
+  //     }
+  // });
+  // // close custom fields cell
+  // customFieldString += '</td>';
+  // // add custom field cell to table content string
+  // contentString += customFieldString;
+  //
+  //
+  tr.innerHTML = contentString;
+  parent.appendChild(tr);
 
 };
