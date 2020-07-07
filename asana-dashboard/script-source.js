@@ -29,6 +29,12 @@ Array(title, heading).forEach(element => {
 // Insert project ID to input box
 projectIdInput.value = projectId;
 
+// Get token from local storage and set to token variable
+var tokenStore = localStorage.getItem("asana_token");
+if(tokenStore) {
+  token = tokenStore;
+};
+
 // If token is assigned in script add to input field and run API function
 if (token) {
     tokenInput.value = token;
@@ -40,6 +46,7 @@ if (token) {
 // EVENT LISTENERS
 // ======================================
 tokenButton.onclick = function () {
+    localStorage.setItem("asana_token",token);
     setToken(testApi);
 }
 tokenInput.addEventListener("keyup", event => {
