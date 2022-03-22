@@ -9,7 +9,6 @@ Hello World
 ---
 [Password Generator](/pass_generator.html)  <br>
 [Stock Market Dashboard](/data-vis/data-vis.html)  <br>
-[geojson.io](/geojson.io)  <br>
 [Asana Test App](/asana-dashboard/index.html)
 ---
 <div id="contact"></div>
