@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "npm run compile:sass",
+    "prepare": "npm-run-all compile:sass copy:public",
     "watch:sass": "node-sass scss/*.scss public/style.css -w",
     "compile:sass": "node-sass --output-style compressed scss/*.scss public/style.css",
+    "copy:public": "cp -r public/* ../spudunk.github.io/",
     "dev-server": "live-server public",
     "start": "npm-run-all --parallel dev-server watch:sass"
   },
