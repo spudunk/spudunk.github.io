@@ -1,0 +1,44 @@
+// NAVIGATION
+.header {
+  height: 3em;
+  width: 100%;
+
+  background-color: var(--color-grey-4);
+  color: var(--color-grey-1);
+  overflow: hidden;
+
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  &__nav {
+    max-width: 120rem;
+    padding: 0 1em;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    // gap: 1em;
+    // font-size: 1.1em;
+    a {
+      padding: 0.8em;
+      line-height: 1;
+    }
+    svg {
+      height: 1.2em;
+      width: 1.2em;
+      stroke: var(--color-grey-1);
+    }
+    &__highlight {
+      background-color: var(--color-primary-0);
+      // padding: 1em;
+    }
+  }
+}
+
+.footer {
+  max-width: 120rem;
+  padding-top: 2em;
+  margin: 0 auto;
+}
