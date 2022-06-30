@@ -1,0 +1,26 @@
+////////////////////////////////////////
+///// HELPERS
+.fade {
+  transition: opacity 0.2s ease-in;
+}
+
+.hidden {
+  display: none;
+}
+
+////////////////////////////////////////
+///// LAYOUT
+.section {
+  line-height: 1.6;
+  padding-top: 3em;
+
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+.container {
+  padding: 0 1em;
+  max-width: 120rem;
+  margin: 0 auto;
+}
