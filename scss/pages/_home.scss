@@ -13,24 +13,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  &__button {
-    display: inline-block;
-    // border-style: none;
-    background-color: var(--color-primary-0);
-    padding: 0.5em 2em;
-    color: var(--color-grey-1);
-    border-radius: 5px;
-    margin-top: 1em;
-    font-weight: 600;
-    a {
-      color: var(--color-grey-1);
-    }
-    &:hover {
-      color: var(--color-grey-2);
-      text-decoration: none;
-      scale: 1.1;
-    }
-  }
+
   &__down {
     height: 6em;
     width: 6em;
@@ -62,4 +45,9 @@
       padding-top: 0.5em;
     }
   }
+}
+
+.pricing {
+  display: grid;
+  gap: 1em;
 }

@@ -1,6 +1,6 @@
 var hero = document.getElementById("hero");
 var heroDown = document.getElementById("hero-down");
-var heroButton = document.getElementById("hero-button");
+var heroButton = document.getElementById("hero-button-primary");
 var about = document.getElementById("about");
 var contact = document.getElementById("contact");
 
