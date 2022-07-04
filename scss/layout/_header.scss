@@ -1,6 +1,51 @@
 // NAVIGATION
 .header {
+  &__bar-background {
+    position: fixed;
+    height: $nav-height;
+    width: 100%;
+    background-color: var(--color-grey-4);
+    z-index: 20;
+  }
+  &__bar {
+    color: var(--color-grey-1);
+    position: fixed;
+    height: $nav-height;
+    width: 100%;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 25;
+
+    &__menu-button,
+    &__menu-button:after,
+    &__menu-button:before {
+      position: absolute;
+      right: $container-padding;
+      background-color: var(--color-grey-1);
+      width: 2em;
+      height: 3px;
+      border-radius: 3px;
+      content: "";
+    }
+    &__menu-button:before {
+      transform: translateY(-0.5em);
+      right: 0;
+    }
+    &__menu-button:after {
+      transform: translateY(0.5em);
+      right: 0;
+    }
+
+    &__contact {
+      display: none;
+    }
+  }
 }
 
-.footer {
+.navbar {
+  display: none;
 }

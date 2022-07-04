@@ -10,17 +10,32 @@
 
 ////////////////////////////////////////
 ///// LAYOUT
-.section {
-  line-height: 1.6;
-  padding-top: 3em;
-
-  p {
-    margin-top: 0.5em;
-  }
-}
 
 .container {
-  padding: 0 1em;
-  max-width: 120rem;
-  margin: 0 auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+  max-width: $bp-largest; // 1200px
+  width: 100%;
+  // margin: 0 auto;
+}
+
+.section {
+  padding-top: 3em;
+  margin-bottom: -2em;
+}
+
+.section::after {
+  content: " ";
+  width: 4em;
+  border-bottom: 0.5em dotted var(--color-grey-2);
+  padding-top: 4em;
+}
+
+.feature-icon {
+  height: 1em;
+  width: 1em;
+  transform: translateY(2px);
+  &__light {
+    fill: var(--color-grey-1);
+  }
 }
