@@ -67,9 +67,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  gap: 1em;
-  padding: 2em;
-  padding-top: 1em + $nav-height;
+  gap: 0.5em;
+  padding: 1em;
+  padding-top: $nav-height;
   display: none;
-  transition: ease-in;
+  font-size: 130%;
 }
