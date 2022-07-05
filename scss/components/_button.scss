@@ -7,7 +7,10 @@
   border-radius: 100px;
 
   &__primary {
-    background-color: var(--color-primary-0);
+    // background-color: var(--color-primary-0);
+    // background-color: black;
+    background-color: var(--color-primary-3);
+
     color: #fff;
   }
 }
