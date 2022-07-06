@@ -3,14 +3,6 @@
   padding: 0;
   color: inherit;
   text-decoration: inherit;
-
-  li {
-    list-style-type: none;
-  }
-}
-a:hover {
-  color: var(--color-grey-3);
-  text-decoration: underline;
 }
 
 *,
@@ -24,10 +16,6 @@ html {
   scroll-behavior: smooth;
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
-
-  // @media only screen and (min-width: $bp-large) {
-  //   font-size: 70%;
-  // }
 }
 
 body {
@@ -35,7 +23,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--color-grey-dark-2);
+  color: var(--color-grey-4);
   background: linear-gradient(to bottom, white, var(--color-grey-1), white);
   // background: var(--color-grey-1);
   background-size: cover;
