@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "npm-run-all compile:sass copy:public",
+    "prepare": "npm-run-all compile:sass copy:public compile:html",
     "watch:sass": "node-sass scss/*.scss public/style.css -w",
     "compile:sass": "node-sass --output-style compressed scss/*.scss public/style.css",
     "copy:public": "cp -r public/* ../spudunk.github.io/",
+    "compile:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true public/index.html > ../spudunk.github.io/index.html",
     "dev-server": "live-server public",
     "start": "npm-run-all --parallel dev-server watch:sass"
   },
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/spudunk/spudunk.github.io#readme",
   "devDependencies": {
     "node-sass": "^7.0.1",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "html-minifier": "^4.0.0"
   }
 }
