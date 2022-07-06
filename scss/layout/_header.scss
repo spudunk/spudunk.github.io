@@ -14,15 +14,16 @@
     width: 100%;
     padding-left: $container-padding;
     padding-right: $container-padding;
-
+    max-width: $bp-largest;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 25;
 
     &__menu-toggle {
-      // height: 2em;
-      width: 3em;
+      width: 3rem;
       display: flex;
       align-items: center;
     }
@@ -30,7 +31,7 @@
     &__menu-button,
     &__menu-button:after,
     &__menu-button:before {
-      width: 2em;
+      width: 3rem;
       height: 3px;
       position: absolute;
       right: $container-padding;
@@ -39,11 +40,11 @@
       content: "";
     }
     &__menu-button:before {
-      transform: translateY(-0.5em);
+      transform: translateY(-0.8rem);
       right: 0;
     }
     &__menu-button:after {
-      transform: translateY(0.5em);
+      transform: translateY(0.8rem);
       right: 0;
     }
 
@@ -57,7 +58,9 @@
   position: fixed;
   z-index: 18;
   top: 0;
-  right: 0;
+  // right: 50%;
+  // transform: translateX(50%);
+  // max-width: $bp-largest;
   height: 100vh;
   width: 100vw;
   background-color: var(--color-grey-4);
@@ -66,10 +69,21 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-end;
-  gap: 0.5em;
-  padding: 1em;
-  padding-top: $nav-height;
+  align-items: center;
+  padding: 1rem;
+  padding-top: $nav-height + 1rem;
   display: none;
-  font-size: 130%;
+  &__contents {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  a {
+    font-size: 130%;
+  }
+
+  a.button__primary {
+    margin-right: -1rem;
+  }
 }

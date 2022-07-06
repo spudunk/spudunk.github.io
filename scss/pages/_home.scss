@@ -8,7 +8,7 @@
     justify-items: center;
   }
   p {
-    margin-top: 0.6em;
+    margin-top: 0.6rem;
   }
 }
 
@@ -16,7 +16,7 @@
   min-height: 100vh;
   background: linear-gradient(
     to bottom,
-    var(--color-grey-4) $nav-height + 1em,
+    var(--color-grey-4) $nav-height + 1rem,
     var(--color-grey-3),
     var(--color-grey-4) 95%
   );
@@ -25,6 +25,8 @@
   color: var(--color-grey-1);
   background-color: var(--color-grey-4);
   z-index: -5;
+
+  // font-size: 1em;
 
   &__container {
     height: 100%;
@@ -36,19 +38,16 @@
   }
   &__contents {
     display: grid;
-    row-gap: 1em;
-    column-gap: 0.5em;
+    row-gap: 1rem;
+    column-gap: 0.5rem;
     justify-items: center;
-
+  }
+  &__heading {
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-shadow: var(--shadow-dark);
     font-size: 1.1em;
   }
-  h1 {
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    font-size: 1.5em;
-    text-shadow: var(--shadow-dark);
-  }
-
   &__image-container {
     position: absolute;
     bottom: 0;
@@ -78,9 +77,10 @@
     letter-spacing: 0.3em;
     font-weight: 600;
     text-shadow: var(--shadow-dark);
+    font-size: 1.2em;
   }
   &__buttons {
-    padding-top: 0.4em;
+    padding-top: 0.4rem;
     font-weight: 600;
   }
 }
@@ -89,21 +89,21 @@
   // color: var(--color-grey-1);
   ul {
     list-style-type: none;
-    margin-left: 1em;
+    margin-left: 1rem;
   }
   h2 {
-    padding-top: 1em;
+    padding-top: 1rem;
   }
 }
 .pricing {
   display: grid;
-  gap: 1em;
+  gap: 1rem;
   ul {
     list-style-type: disc;
-    padding-left: 1em;
+    padding-left: 1rem;
     ul {
       list-style-type: circle;
-      padding-left: 0.5em;
+      padding-left: 0.5rem;
     }
   }
 }
@@ -111,10 +111,10 @@
 .contact {
   &__list {
     list-style-type: none;
-    margin-top: 1em;
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 0.5rem;
     justify-content: flex-end;
   }
 }
