@@ -20,15 +20,15 @@
 }
 
 .section {
-  padding-top: 3em;
-  margin-bottom: -2em;
+  padding-top: 3rem;
+  margin-bottom: -2rem;
 }
 
 .section::after {
   content: " ";
-  width: 3.5em;
-  border-bottom: 0.5em dotted var(--color-grey-2);
-  padding-top: 4em;
+  width: 3.5rem;
+  border-bottom: 0.5rem dotted var(--color-grey-2);
+  padding-top: 4rem;
 }
 
 .feature-icon {
